@@ -1,4 +1,4 @@
-# nozzleboss
+#nozzleboss
 G-code Importer/Exporter Add-on for Blender.
 Allows to store meta information like color, speed or extrusion volume on a per vertex basis
 using vertex color maps.
