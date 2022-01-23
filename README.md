@@ -17,10 +17,16 @@ _changing color every other layer with 'Tool' vertex color map_
 
 
 ### Limitations: 
-- This is not a slicer, you can't export a .stl file directly to G-code, you either need to import pre-sliced G-code first or built extrusion paths from sratch.  
-- Be care when changing the geometry of the G-code, it's pretty easy to create non-planar paths and crash the hotend.  
 - Only supports firmware retraction (G10/G11) for now.  
 - Only supports relative extrusion mode, 'Start' G-code has M83 command by default.  
+- Be careful when changing the geometry of the G-code, it's pretty easy to create non-planar paths and crash the hotend.  
+- This is not a slicer, you can't export a .stl file directly to G-code, you either need to import pre-sliced G-code first or built extrusion paths from scratch.  
+- When generating your own extrusion paths inside of Blender keep the neccessary mesh structure of the path in mind.
+   To hold vertex colors and use the sculpt tools on the mesh, Blender requires you to create polygons from the extrusion path and   
+   so does the G-code exporter.  
+   When starting from a 2D polyline, just extrude in Z and the created polygons will have the right vertex index order
+
+ 
 
 
 ### Installation
