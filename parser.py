@@ -432,9 +432,10 @@ class GcodeModel:
                         bevel_path(bpy.data.objects[obj.name])
                         
                         #create vcol maps and textblocks
-                        obj.data.vertex_colors.new(name='Tool')
-                        obj.data.vertex_colors.new(name='Flow')
                         obj.data.vertex_colors.new(name='Speed')
+                        obj.data.vertex_colors.new(name='Flow')
+                        obj.data.vertex_colors.new(name='Tool')
+
                         if not bpy.data.texts.get('T0'):
                             bpy.data.texts.new('T0')
                             bpy.data.texts['T0'].write('T0; switch to extruder T0 (any G-code macro can be passed here)\n')
