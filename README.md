@@ -1,9 +1,13 @@
 # nozzleboss
-nozzleboss is a G-code importer and re-exporter Add-on for Blender.
+### nozzleboss is a G-code importer and re-exporter Add-on for Blender.  
+![intro_extrasmall](https://user-images.githubusercontent.com/17910445/150960353-a4e39422-3d2e-4e46-be27-bc2b35ba813f.gif)  
+_The G-code gets converted to a mesh and can be modified with all of Blenders modeling tools_
+ 
 
-The G-code gets converted to a mesh and can be modified with all of Blenders modeling tools.   
 Besides having vertex level control over the extrusion path, the Add-on allows you to create   
 texture-based 'Flow' and 'Speed' weight maps using Blenders vertex paint mode.  
+The 'Speed' multiplier works exactly like Mark Wheadons ['Velocity painting'](https://github.com/MarkWheadon/velocity-painting) technique, except  
+you can use Blenders vertex colors to get the texture onto the model, which is quite convenient.
 
 _Example image, 3 settings_
 
@@ -13,7 +17,22 @@ on the underlying color, will insert a different G-code command for each color.
 To edit such a command go to Blenders text editor and choose the textblock called 'T0',  
 which by default is represented by the color black.  
 
-_changing color every other layer with 'Tool' vertex color map_
+
+
+![scratch_extrasmall](https://user-images.githubusercontent.com/17910445/150961183-9e54d273-54b1-474b-a630-9ebda929d559.gif)  
+_building extrusion paths form scratch and changing color every other layer with 'Tool' vertex color map_  
+_I'm using an array modifier here and sculpting the paths with a hook/smooth brush while the Z-axis is locked._
+
+
+
+If you are not familiar with Blender, navigating the user interface takes some getting used to.  
+Here is an example [.blend file](http://link.to/diffrepo) with an already sliced and textured test cube, and all relevant windows opened up.  
+Change the 'Start' and 'End' G-code for your printer and try to export.  
+Detailed explanation of every setting is in the [Wiki](https://github.com/Heinz-Loepmeier/nozzleboss/wiki).  
+For development updates and some occasional howtos follow me on [Twitter](https://twitter.com/aeth1) or have a look at my [Instagram](https://www.instagram.com/nozzleboss/)  
+to see what can be done with path based printing.
+
+
 
 
 ### Limitations: 
@@ -25,8 +44,7 @@ _changing color every other layer with 'Tool' vertex color map_
    To hold vertex colors and use the sculpt tools on the mesh, Blender requires you to create polygons from the extrusion path and   
    so does the G-code exporter. When starting from a 2D polyline, just extrude in Z and the created polygons will have the right vertex index order.
 - Note that you can't specify things like nozzle diameter, layer height or extrusion width. Extrusion values are calculated from the height and length of a polygon, since the polygon has no width, it uses a factor of _1.2 x polygon height_ as polygon width.
-
- 
+- Can import vasemode or variable height G-code, but not both at the same time. (which prusaslicer allows you to) 
 
 
 ### Installation
