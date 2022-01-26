@@ -20,7 +20,7 @@ which by default is represented by the color black.
 
 
 ![scratch_extrasmall](https://user-images.githubusercontent.com/17910445/150961183-9e54d273-54b1-474b-a630-9ebda929d559.gif)  
-_building extrusion paths form scratch and changing color every other layer with 'Tool' vertex color map_  
+_Building extrusion paths form scratch and changing colors every other layer with 'Tool' vertex color map_  
 _I'm using an array modifier here and sculpting the paths with a hook/smooth brush while the Z-axis is locked._
 
 
