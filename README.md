@@ -29,7 +29,7 @@ _I'm using an array modifier here and sculpting the paths with a hook/smooth bru
 
 
 If you are not familiar with Blender, navigating the user interface takes some getting used to.  
-Here is an example [.blend file](http://link.to/diffrepo) with an already sliced and textured test cube, and all relevant windows opened up.  
+Here is an example [.blend file](https://github.com/Heinz-Loepmeier/misc/blob/main/nozzleboss_blend.zip) with an already sliced and textured test cube, and all relevant windows opened up.  
 Change the 'Start' and 'End' G-code for your printer and try to export.  
 Detailed explanation of every setting is in the [Wiki](https://github.com/Heinz-Loepmeier/nozzleboss/wiki).  
 For development updates and some occasional howtos follow me on [Twitter](https://twitter.com/aeth1) or have a look at my [Instagram](https://www.instagram.com/nozzleboss/)  
