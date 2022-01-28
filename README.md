@@ -3,14 +3,17 @@
 ![intro_extrasmall](https://user-images.githubusercontent.com/17910445/150960353-a4e39422-3d2e-4e46-be27-bc2b35ba813f.gif)  
 _The G-code gets converted to a mesh and can be modified with all of Blenders modeling tools_
  
-
+### Extrusion/Speed multiplier
 Besides having vertex level control over the extrusion path, the Add-on allows you to create   
 texture-based 'Flow' and 'Speed' weight maps using Blenders vertex paint mode.  
 The 'Speed' multiplier works exactly like Mark Wheadons ['Velocity painting'](https://github.com/MarkWheadon/velocity-painting) technique, except  
 you can use Blenders vertex colors to get the texture onto the model, which is quite convenient.
 
-_Example image, 3 settings_
 
+![3_settings_nozzleboss_small](https://user-images.githubusercontent.com/17910445/151602354-62088802-b811-4b28-ba15-ea538a656761.png)  
+_3 different min and max Flow/Speed multiplier settings_
+
+### Paint on tool seletion
 Concept of weight maps can be extended to other G-code commands as well.  
 By default every import also creates a vertex color map called 'Tool', which depending  
 on the underlying color, will insert a different G-code command for each color.  
