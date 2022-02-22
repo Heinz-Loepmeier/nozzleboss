@@ -13,13 +13,13 @@ you can use Blenders vertex colors to get the texture onto the model, which is q
 ![3_settings_nozzleboss_small](https://user-images.githubusercontent.com/17910445/151602354-62088802-b811-4b28-ba15-ea538a656761.png)  
 _3 different min and max Flow/Speed multiplier settings_
 
-### 'Paint on' tool selection
+### Tool selection based on vertex colors
 Concept of weight maps can be extended to other G-code commands as well.  
 By default every import also creates a vertex color map called 'Tool', which depending  
 on the underlying color, will insert a different G-code command for each color.  
 To edit such a command go to Blenders text editor and choose the textblock called 'T0',  
-which by default is represented by the color black.  
-
+which by default is represented by the color black and textblock 'T1' for the vertex color white.
+Everytime the color changes the provided text is inserted into the G-code
 
 
 ![scratch_extrasmall](https://user-images.githubusercontent.com/17910445/150961183-9e54d273-54b1-474b-a630-9ebda929d559.gif)  
