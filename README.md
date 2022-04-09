@@ -56,3 +56,4 @@ to see what can be done with path based printing.
 - Blender-->Edit-->Preferences-->Add-ons 
 - Click "Install..." and select nozzleboss-master.zip (macOS might have auto-extracted your .zip file, just recompress the folder to .zip)
 - activate checkmark for 'Import-Export: nozzleboss' in Add-on list
+- Addon appears in N-Panel (press 'n' in viewport) and NOT via File-->Export/Import
