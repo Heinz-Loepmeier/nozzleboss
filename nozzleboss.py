@@ -302,6 +302,8 @@ def export_gcode(context):
         obj.data.vertex_colors.new(name='Speed')
     if not obj.data.vertex_colors.get('Speed'):
         obj.data.vertex_colors.new(name='Speed')
+    if not obj.data.vertex_colors.get('Tool'):
+        obj.data.vertex_colors.new(name='Tool')
 
 
     #Read extrusion and speed multiplier vertex color map
