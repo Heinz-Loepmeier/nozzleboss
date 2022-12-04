@@ -338,7 +338,7 @@ def export_gcode(context):
 
 
 
-
+ 
 
     islands = find_islands(edges)
     sorted_islands = sort_Z(islands, verts)
