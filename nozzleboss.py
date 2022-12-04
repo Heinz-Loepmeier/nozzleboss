@@ -304,13 +304,37 @@ def export_gcode(context):
         obj.data.vertex_colors.new(name='Speed')
     if not obj.data.vertex_colors.get('Tool'):
         obj.data.vertex_colors.new(name='Tool')
-
-
+        
+        
     #Read extrusion and speed multiplier vertex color map
     #gets right loop color for every v_idx
     extrusion_weights = read_weightmap_from_vcol(obj, 'Flow')
     speed_weights = read_weightmap_from_vcol(obj, 'Speed')
     tool_colors = read_weightmap_from_vcol(obj, 'Tool')
+    
+    #auto create textblocks to, need if you model from scratch (if you import existing they get created in parser)
+    if not bpy.data.texts.get('T0'):
+        bpy.data.texts.new('T0')
+        bpy.data.texts['T0'].write('T0; switch to extruder T0 (any G-code macro can be passed here)\n')
+    if not bpy.data.texts.get('T1'):
+        bpy.data.texts.new('T1')
+        bpy.data.texts['T1'].write('T1; switch to extruder T1 (any G-code macro can be passed here)\n')
+    if not bpy.data.texts.get('Start'):
+        bpy.data.texts.new('Start')
+        bpy.data.texts['Start'].write(';nozzleboss\n')
+        bpy.data.texts['Start'].write('G28 ;homing\n')
+        bpy.data.texts['Start'].write('M104 S180 ;set hotend temp\n')
+        bpy.data.texts['Start'].write('M190 S50 ;wait for bed temp\n')
+        bpy.data.texts['Start'].write('M109 S200 ;wait for hotendtemp\n')
+        bpy.data.texts['Start'].write('M83; relative extrusion mode (REQUIRED)\n')
+
+    if not bpy.data.texts.get('End'):
+        bpy.data.texts.new('End')
+        bpy.data.texts['End'].write('G10 ;retract\n')
+        bpy.data.texts['End'].write('M104 S0 ;deactivate hotend\n')
+        bpy.data.texts['End'].write('M140 S0 ;deactivate bed\n')
+        bpy.data.texts['End'].write('G28 ;homing\n')
+        bpy.data.texts['End'].write('M84 ;turn off motors\n')
 
 
 
