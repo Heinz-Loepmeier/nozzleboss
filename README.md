@@ -43,7 +43,7 @@ to see what can be done with path based printing.
 - Only supports relative extrusion mode, 'Start' G-code has M83 command by default.
 - .gcode file gets saved to same location as current .blend file 
 - When generating your own extrusion paths inside of Blender keep the neccessary mesh structure of the path in mind:
-   I recommend ['turning on Developer Extra's and showing vertex indices'](https://blender.stackexchange.com/questions/158493/displaying-vertex-indices-in-blender-2-8-using-debug-mode)
+   I recommend ['turning on Developer Extras and showing vertex indices'](https://blender.stackexchange.com/questions/158493/displaying-vertex-indices-in-blender-2-8-using-debug-mode)
    - Make sure that your path's vertex indices are in linear order and start like this 0-1-2-3-...
    - Mesh operations like subdivide or ripping vertices can scramble the order to something like this 0-6-1-5-...
    - To reorder use Blender's 'Convert to curve' and convert back to mesh.
