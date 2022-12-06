@@ -50,7 +50,7 @@ to see what can be done with path based printing.
    - To change the direction of the path, select all verts and go to Mesh->Sort Elements->Reverse
    - If you have a nicely ordered 2D path, extrude the path in the negative Z direction. (nozzleboss will only export extruded paths)
       - Height of the extrusion defines your layerheight
-      - Creating polygons is used for storing and showing vertex colors used for weightmap.
+      - Creating polygons is used for storing and showing vertex colors used for weightmaps.
       - Actual toolpath travel is your initial 2D path
 
 - Note that you can't specify things like nozzle diameter, layer height or extrusion width. Extrusion values are calculated from the height and length of a polygon, since the polygon has no width, it uses a factor of _1.2 x polygon height_ as polygon width.
