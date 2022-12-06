@@ -23,7 +23,7 @@ Everytime the color changes the provided text is inserted into the G-code
 
 
 ![scratch_extrasmall](https://user-images.githubusercontent.com/17910445/150961183-9e54d273-54b1-474b-a630-9ebda929d559.gif)  
-_Building extrusion paths form scratch and changing colors every other layer with 'Tool' vertex color map_  
+_Building extrusion paths from scratch and changing colors every other layer with 'Tool' vertex color map_  
 _I'm using an array modifier here and sculpting the paths with a hook/smooth brush while the Z-axis is locked._
 
 
@@ -40,15 +40,22 @@ to see what can be done with path based printing.
 
 ### Limitations: 
 - Only supports firmware retraction (G10/G11) for now.  
-- Only supports relative extrusion mode, 'Start' G-code has M83 command by default.  
-- Be careful when changing the geometry of the G-code, it's pretty easy to create non-planar paths and crash the hotend.  
-- This is not a slicer, you can't export a .stl file directly to G-code, you either need to import pre-sliced G-code first or built extrusion paths from scratch.  
-- When generating your own extrusion paths inside of Blender keep the neccessary mesh structure of the path in mind.  
-   To hold vertex colors and use the sculpt tools on the mesh, Blender requires you to create polygons from the extrusion path and
-   so does the G-code exporter.  
-   When starting from a 2D polyline, just extrude in Z and the created polygons will have the right vertex index order.
+- Only supports relative extrusion mode, 'Start' G-code has M83 command by default.
+- .gcode file gets saved to same location as current .blend file 
+- When generating your own extrusion paths inside of Blender keep the neccessary mesh structure of the path in mind:
+   I recommend ['turning on Developer Extra's and showing vertex indices'](https://blender.stackexchange.com/questions/158493/displaying-vertex-indices-in-blender-2-8-using-debug-mode)
+   Make sure that your path's vertex indices are in linear order and start like this 0-1-2-3-...
+   Mesh operations like subdivide or ripping vertices can scramble the order to something like this 0-6-1-5-...
+   To reorder use Blender's 'Convert to curve' and convert back to mesh.
+   To change the direction of the path, select all verts and go to Mesh->Sort Elements->Reverse
+   If you have a nicely ordered 2D path, extrude the path in the negative Z direction. (nozzleboss will only export extruded paths)
+      Height of the extrusion defines your layerheight
+      Creating polygons is used for storing and showing vertex colors used for weightmap.
+      Actual toolpath travel is your initial 2D path
+
 - Note that you can't specify things like nozzle diameter, layer height or extrusion width. Extrusion values are calculated from the height and length of a polygon, since the polygon has no width, it uses a factor of _1.2 x polygon height_ as polygon width.
 - Can import vasemode or variable height G-code, but not both at the same time. (which prusaslicer allows you to) 
+- This is not a slicer, you can't export a .stl file directly to G-code, you either need to import pre-sliced G-code first or build extrusion paths from scratch. 
 
 
 ### Installation
