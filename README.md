@@ -44,14 +44,14 @@ to see what can be done with path based printing.
 - .gcode file gets saved to same location as current .blend file 
 - When generating your own extrusion paths inside of Blender keep the neccessary mesh structure of the path in mind:
    I recommend ['turning on Developer Extra's and showing vertex indices'](https://blender.stackexchange.com/questions/158493/displaying-vertex-indices-in-blender-2-8-using-debug-mode)
-   Make sure that your path's vertex indices are in linear order and start like this 0-1-2-3-...
-   Mesh operations like subdivide or ripping vertices can scramble the order to something like this 0-6-1-5-...
-   To reorder use Blender's 'Convert to curve' and convert back to mesh.
-   To change the direction of the path, select all verts and go to Mesh->Sort Elements->Reverse
-   If you have a nicely ordered 2D path, extrude the path in the negative Z direction. (nozzleboss will only export extruded paths)
-      Height of the extrusion defines your layerheight
-      Creating polygons is used for storing and showing vertex colors used for weightmap.
-      Actual toolpath travel is your initial 2D path
+   - Make sure that your path's vertex indices are in linear order and start like this 0-1-2-3-...
+   - Mesh operations like subdivide or ripping vertices can scramble the order to something like this 0-6-1-5-...
+   - To reorder use Blender's 'Convert to curve' and convert back to mesh.
+   - To change the direction of the path, select all verts and go to Mesh->Sort Elements->Reverse
+   - If you have a nicely ordered 2D path, extrude the path in the negative Z direction. (nozzleboss will only export extruded paths)
+      - Height of the extrusion defines your layerheight
+      - Creating polygons is used for storing and showing vertex colors used for weightmap.
+      - Actual toolpath travel is your initial 2D path
 
 - Note that you can't specify things like nozzle diameter, layer height or extrusion width. Extrusion values are calculated from the height and length of a polygon, since the polygon has no width, it uses a factor of _1.2 x polygon height_ as polygon width.
 - Can import vasemode or variable height G-code, but not both at the same time. (which prusaslicer allows you to) 
