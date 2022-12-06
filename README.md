@@ -46,7 +46,7 @@ to see what can be done with path based printing.
    I recommend ['turning on Developer Extras and showing vertex indices'](https://blender.stackexchange.com/questions/158493/displaying-vertex-indices-in-blender-2-8-using-debug-mode)
    - Make sure that your path's vertex indices are in linear order and start like this 0-1-2-3-...
    - Mesh operations like subdivide or ripping vertices can scramble the order to something like this 0-6-1-5-...
-   - To reorder use Blender's 'Convert to curve' and convert back to mesh.
+   - To reorder use Blenders 'Convert to curve' and convert back to mesh.
    - To change the direction of the path, select all verts and go to Mesh->Sort Elements->Reverse
    - If you have a nicely ordered 2D path, extrude the path in the negative Z direction. (nozzleboss will only export extruded paths)
       - Height of the extrusion defines your layerheight
