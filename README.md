@@ -28,8 +28,7 @@ _I'm using an array modifier here and sculpting the paths with a hook/smooth bru
 
 
 
-If you are not familiar with Blender, navigating the user interface takes some getting used to.  
-Here is an example [.blend file](https://github.com/Heinz-Loepmeier/misc/blob/main/nozzleboss_blend.zip) with an already sliced and textured test cube, and all relevant windows opened up.  
+If you are not familiar with Blender and get any error on export, try starting with this [example.blend file](https://github.com/Heinz-Loepmeier/misc/blob/main/nozzleboss_blend.zip) here, it has a pre-sliced and textured test cube, and all relevant windows opened up.  
 Change the 'Start' and 'End' G-code for your printer and try to export.  
 Detailed explanation of every setting is in the [Wiki](https://github.com/Heinz-Loepmeier/nozzleboss/wiki).  
 For development updates and some occasional howtos follow me on [Twitter](https://twitter.com/aeth1) or have a look at my [Instagram](https://www.instagram.com/nozzleboss/)  
@@ -42,7 +41,7 @@ to see what can be done with path based printing.
 - Only supports firmware retraction (G10/G11) for now.  
 - Only supports relative extrusion mode, 'Start' G-code has M83 command by default.
 - .gcode file gets saved to same location as current .blend file 
-- When generating your own extrusion paths, keep the neccessary mesh structure of the path in mind:
+- When generating your own extrusion paths, keep the neccessary mesh structure in mind:
    I recommend turning on ['Developer Extras and showing vertex indices'](https://blender.stackexchange.com/questions/158493/displaying-vertex-indices-in-blender-2-8-using-debug-mode)
    - Make sure that your path's vertex indices are in linear order and start like this 0-1-2-3-...
    - Mesh operations like subdivide or ripping vertices can scramble the order to something like this 0-6-1-5-...
