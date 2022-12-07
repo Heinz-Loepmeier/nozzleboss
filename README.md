@@ -28,8 +28,7 @@ _I'm using an array modifier here and sculpting the paths with a hook/smooth bru
 
 
 
-If you are not familiar with Blender and get any errors on export,
-try starting with this [example.blend file](https://github.com/Heinz-Loepmeier/misc/blob/main/nozzleboss_blend.zip) here,
+If you are not familiar with Blender and get any errors on export, try starting with this [example.blend](https://github.com/Heinz-Loepmeier/misc/blob/main/nozzleboss_blend.zip) file here,  
 it has a pre-sliced and textured test cube, and all relevant windows opened up.  
 Change the 'Start' and 'End' G-code for your printer and try to export.  
 Detailed explanation of every setting is in the [Wiki](https://github.com/Heinz-Loepmeier/nozzleboss/wiki).  
