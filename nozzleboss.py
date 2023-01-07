@@ -65,7 +65,7 @@ class gcode_settings(bpy.types.PropertyGroup):
         )
 
     subdivide: BoolProperty(
-        name="Line Segmentation",
+        name="Subdivide",
         description="Subdivide Segments that are bigger then value, needed to increase resolution when modifyng the mesh",
         default = False
         )
@@ -107,7 +107,13 @@ class gcode_settings(bpy.types.PropertyGroup):
         default = 1.
         )
         
-                
+    
+    nozzle_diameter: FloatProperty(
+        name = "",
+        description = "Nozzle diameter - used to calculate the extrusion width",
+        default = 0.4
+        )
+                    
     travel_speed: IntProperty(
         name = "",
         description = "In mm/s. Exported G-code will have mm/min though",
@@ -183,6 +189,7 @@ class NOZZLEBOSS_PT_Panel(bpy.types.Panel):
         
         col = layout.box().column(align=True)
         col.label(text="Export settings:")
+        col.prop(nozzleboss, "nozzle_diameter", text='Nozzle Size')
         col.prop(nozzleboss, "travel_speed", text='Travel Speed')
         col.prop(nozzleboss, "extrusion_speed", text='Extrusion Speed')
 
@@ -306,6 +313,7 @@ def export_gcode(context):
     _txt = []
     start_code = read_textblock('Start')+'\n'#'G28\nM140 S50\nM109 S190\nM83\nG1 F600\n;RGB,-1,-1,-1\nM163 S0 P0\nM163 S1 P0\nM163 S2 P1\nM163 S3 P1\nM163 S4 P1\nM164 S0\nT0\n'
     _txt.append(start_code)
+    nozzle_diameter = nozzleboss.nozzle_diameter
     extrusion_speed = nozzleboss.extrusion_speed
     travel_speed = nozzleboss.travel_speed
 
@@ -381,7 +389,7 @@ def export_gcode(context):
             dist = np.linalg.norm(P2-P1)
             height=np.linalg.norm(P3-P2)
 
-            width=height*1.5
+            width=nozzle_diameter*1.5
             multiplier = extrusion_weights[e_edges[i+1]]#
             multiplier = remap(multiplier, nozzleboss.min_flow, nozzleboss.max_flow)
             E_volume=dist*height*width*multiplier
