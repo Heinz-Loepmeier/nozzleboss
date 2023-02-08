@@ -44,16 +44,16 @@ to see what can be done with path based printing.
 - .gcode file gets saved to same location as current .blend file 
 - When generating your own extrusion paths, keep the neccessary mesh structure in mind:
    I recommend turning on ['Developer Extras and showing vertex indices'](https://blender.stackexchange.com/questions/158493/displaying-vertex-indices-in-blender-2-8-using-debug-mode)
+   -Start with a simple 2D path/polyline
    - Make sure that your path's vertex indices are in linear order and start like this 0-1-2-3-...
    - Mesh operations like subdivide or ripping vertices can scramble the order to something like this 0-6-1-5-...
    - To reorder use Blenders 'Convert to curve' and convert back to mesh.
-   - To change the direction of the path, select all verts and go to Mesh->Sort Elements->Reverse
    - If you have a nicely ordered 2D path, extrude the path in the negative Z direction. (nozzleboss will only export extruded paths)
       - Height of the extrusion defines your layerheight
       - Creating polygons is used for storing and showing vertex colors used for weightmaps.
-      - Actual toolpath travel is your initial 2D path
+      - Actual toolpath of the nozzle is your initial 2D path
 
-- Note that you can't specify things like nozzle diameter, layer height or extrusion width. Extrusion values are calculated from the height and length of a polygon, since the polygon has no width, it uses a factor of _1.2 x polygon height_ as polygon width.
+- Extrusion values are calculated from the height and length of a polygon/extruded path.
 - Can import vasemode or variable height G-code, but not both at the same time. (which prusaslicer allows you to) 
 - This is not a slicer, you can't export a .stl file directly to G-code, you either need to import pre-sliced G-code first or build extrusion paths from scratch. 
 
