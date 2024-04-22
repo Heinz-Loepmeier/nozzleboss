@@ -3,13 +3,13 @@ import numpy as np
 import bmesh
 
 def read_verts(mesh):
-    mverts_co = np.zeros((len(mesh.vertices) * 3), dtype=np.float)
+    mverts_co = np.zeros((len(mesh.vertices) * 3), dtype=float)
     mesh.vertices.foreach_get("co", mverts_co)
     return np.reshape(mverts_co, (len(mesh.vertices), 3))
 
 
 def read_edges(mesh): #return np.array
-    fastedges = np.zeros((len(mesh.edges)*2), dtype=np.int) # [0.0, 0.0] * len(mesh.edges)
+    fastedges = np.zeros((len(mesh.edges)*2), dtype=int) # [0.0, 0.0] * len(mesh.edges)
     mesh.edges.foreach_get("vertices", fastedges)
     return np.reshape(fastedges, (len(mesh.edges), 2))
 
