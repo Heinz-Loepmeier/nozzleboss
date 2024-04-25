@@ -250,7 +250,7 @@ def sort_Z(islands, verts):  #islands = vert_idx,  verts = verts_co
 def read_weightmap_from_vcol(obj, vcol_name):
     
     def read_polyverts(obj):#vert indices of polygon
-        polyverts = np.zeros((len(obj.data.polygons) * 4), dtype=np.int)
+        polyverts = np.zeros((len(obj.data.polygons) * 4), dtype=int)
         obj.data.polygons.foreach_get("vertices", polyverts)
         return polyverts
         
