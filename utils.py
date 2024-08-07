@@ -227,7 +227,8 @@ def find_islands(edges):
             for key in eligible: paths.pop(key)
         lparts.append(sorted(list(lpart))) #make index order of unordered set chronological, works in my case
     
-    return np.array(lparts)
+    #return np.array(lparts)
+    return np.array(lparts, dtype=object) 
 
 def sort_Z(islands, verts):  #islands = vert_idx,  verts = verts_co
     sorted_verts=[]
